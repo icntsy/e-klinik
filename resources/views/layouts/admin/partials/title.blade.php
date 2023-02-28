@@ -1,0 +1,1 @@
+<title>E-Klinik Laa-Tachzan - {{ $title }} </title>
