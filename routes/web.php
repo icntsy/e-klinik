@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\DashboardController;
+
 
 
 Route::get('/', function () {
@@ -17,11 +17,13 @@ Route::post('/logout', [UserController::class, 'logout']);
 
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
-
 Route::get('/user', [RegisterController::class, 'index1']);
+
 
 Route::get('/dashboard', function() { return view('layouts.admin.partials.index', [
             'title' => 'Dashboard'
             ]);})->middleware('auth');
+
+Route::delete("/user/{id}", [RegisterController::class, "destroy"]);
 
 Route::post('/logout', [UserController::class, 'logout']);

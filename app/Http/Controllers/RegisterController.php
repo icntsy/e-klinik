@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\RedirectResponse;
 
 class RegisterController extends Controller
 {
@@ -33,5 +34,12 @@ class RegisterController extends Controller
         User::create($validatedData);
 
         return redirect('/login')->with('success', 'Registration successfull! Please Login');
+    }
+
+    public function destroy($id): RedirectResponse
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->route('livewire.users.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }
