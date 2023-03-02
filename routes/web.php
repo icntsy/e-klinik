@@ -24,6 +24,7 @@ Route::get('/dashboard', function() { return view('layouts.admin.partials.index'
             'title' => 'Dashboard'
             ]);})->middleware('auth');
 
+Route::get("/user/create", [RegisterController::class, "create"]);
 Route::delete("/user/{id}", [RegisterController::class, "destroy"]);
 
 Route::post('/logout', [UserController::class, 'logout']);

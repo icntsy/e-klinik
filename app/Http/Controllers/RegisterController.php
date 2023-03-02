@@ -16,7 +16,7 @@ class RegisterController extends Controller
     }
     public function index1() {
 
-        $user = User::select ('name', 'password', 'email', 'role')->get();
+        $user = User::select ('id', 'name', 'password', 'email', 'role')->get();
         return view('livewire.users.index', [
             'title' => 'User',
             'users' => $user
@@ -36,10 +36,17 @@ class RegisterController extends Controller
         return redirect('/login')->with('success', 'Registration successfull! Please Login');
     }
 
+    public function create()
+    {
+        return view('livewire.users.create', [
+            'title' => 'Create User'
+        ]);
+    }
+
     public function destroy($id): RedirectResponse
     {
         $user = User::findOrFail($id);
         $user->delete();
-        return redirect()->route('livewire.users.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        return back()->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }

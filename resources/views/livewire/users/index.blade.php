@@ -121,10 +121,13 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="template-demo mt-2">
-                                        <button type="button" class="btn btn-outline-primary btn-icon-text">
+                                        <div class="col-md-6 col-sm-12">
+                                            <a href="/user/create" class="btn btn-outline-primary btn-icon-text"><i class="mdi mdi-account-plus"></i> Tambah Data</a>
+                                        </div>
+                                        {{-- <button type="button" class="btn btn-outline-primary btn-icon-text">
                                             <i class="mdi mdi-account-plus"></i>
                                             Tambah Data
-                                        </button>
+                                        </button> --}}
                                     </div>
                                     <div class="table-responsive pt-3">
                                         <table class="table table-bordered">
@@ -165,7 +168,7 @@
                                                         <td>
                                                             <a href=""><i class="mdi mdi-tooltip-edit px-2"
                                                                     style="font-size: 20px"></i></a>
-                                                            <form action="/user/2" method="post" class="d-inline">
+                                                            <form action="/user/{{ $user->id }}" method="post" class="d-inline">
                                                                 @method('delete')
                                                                 @csrf
                                                                 <button class="border-0 bg-white" onclick="return confim('Yakin Hapus Data?')"><i
