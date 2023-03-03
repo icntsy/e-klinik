@@ -17,6 +17,7 @@ Route::post('/logout', [UserController::class, 'logout']);
 
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
+Route::post('/user', [RegisterController::class, 'store1']);
 Route::get('/user', [RegisterController::class, 'index1']);
 
 

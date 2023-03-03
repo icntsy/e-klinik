@@ -39,8 +39,25 @@ class RegisterController extends Controller
     public function create()
     {
         return view('livewire.users.create', [
-            'title' => 'Create User'
+            'title' => 'Create'
         ]);
+    }
+
+    public function store1(Request $request) {
+        dd($request->all());
+        $validatedData = $request->validate([
+            'name' => 'required|min:5|max:255',
+            'email'=> 'required|email:dns|unique:users',
+            'password' => 'required|min:5|max:255',
+            'role' => 'required'
+        ]);
+
+        $validatedData['role'] = $request->role;
+        $validatedData['password'] = Hash::make($validatedData['password']);
+
+        User::create($validatedData);
+
+        return redirect('/user')->with('success', 'Registration successfull! Please Login');
     }
 
     public function destroy($id): RedirectResponse

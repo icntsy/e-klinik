@@ -22,7 +22,6 @@
     <!-- endinject -->
     <link rel="shortcut icon" href="example/template/images/favicon.png" />
 </head>
-
 <body>
     <div class="container-scroller">
         <div class="container-fluid page-body-wrapper full-page-wrapper">
