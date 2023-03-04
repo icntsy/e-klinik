@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="example/template/css/vertical-layout-light/style.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="example/template/images/favicon.png" />
-    <link rel="stylesheet" href="example/template/sweetalert2/dist/sweetalert2.min.css">
+    {{-- <link rel="stylesheet" href="example/template/sweetalert2/dist/sweetalert2.min.css"> --}}
 </head>
 <body>
     <div class="container-scroller">
@@ -168,13 +168,16 @@
                                                         <td>
                                                             <a href=""><i class="mdi mdi-tooltip-edit px-2"
                                                                     style="font-size: 20px"></i></a>
-                                                            <form action="/user/{{ $user->id }}" method="post" class="d-inline">
+
+                                                                    <a href="/user/{{ $user->id }}" method="post" class="mdi mdi-delete text-primary" style="font-size: 20px" id="delete"></a>
+
+                                                            {{-- <form action="/user/{{ $user->id }}" method="post" class="d-inline">
                                                                 @method('delete')
                                                                 @csrf
                                                                 <button class="border-0 bg-white" onclick="return confim('Yakin Hapus Data?')"><i
                                                                         class="mdi mdi-delete text-primary"
                                                                         style="font-size: 20px"></i></button>
-                                                            </form>
+                                                            </form> --}}
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -211,9 +214,8 @@
     <!-- endinject -->
     <!-- Custom js for this page-->
     <!-- End custom js for this page-->
-    <script src="example/template/sweetalert2/dist/sweetalert2.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    {{-- <script type="text/javascript">
+    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript">
         $(function(){
             $(document).on('click', 'delete', function(e){
 

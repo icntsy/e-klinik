@@ -267,7 +267,7 @@
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <form action="/register" class="forms-sample" method="post">
+                  <form action="/user/create" class="forms-sample" method="post">
                     @csrf
                     <div class="form-group">
                       <label for="exampleInputName1">Nama Lengkap</label>
